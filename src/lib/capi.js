@@ -1,6 +1,7 @@
 import Rx from 'rx';
 
 import {Days} from './days.js';
+import {Journalists} from './journalists.js';
 
 
 const dailyCost = 5;
@@ -12,16 +13,18 @@ const headlines = [
   "Tower Hamlets seceedes from UK."
 ]
 
-const doc = () => {
+const doc = (idea) => {
  const i = Math.floor(Math.random() * 10) % headlines.length
 
   return {
-    title: headlines[i]
+    title: headlines[i],
+    appeal: idea.appeal,
+    integrity: idea.appeal 
   }
 }
 
 const documentStream = 
-  Rx.Observable.interval(1000).map((t) => doc())
+  Journalists.ideaStream.map((idea) => doc(idea))
 
 export const Capi = {
   cost: dailyCost,
