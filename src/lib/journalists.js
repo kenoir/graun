@@ -3,7 +3,7 @@ import Rx from 'rx';
 
 const levelMultiplier$ = new Rx.BehaviorSubject(0);
 
-const dailyCost = 5;
+const costCap = 25;
 const attrCap = 10;
 
 const idea = (level) => {
@@ -17,6 +17,9 @@ const idea = (level) => {
     integrity
   }
 }
+
+const costStream = 
+  levelMultiplier$.map((level) => (level/100) * costCap) 
 
 const ideaStream = 
   Rx.Observable.interval(1000).withLatestFrom(
@@ -44,8 +47,7 @@ const meanIntegrity =
 
 export const Journalists = {
   level$: levelMultiplier$,
-  cost: dailyCost,
+  cost$: costStream,
   ideaStream: ideaStream,
   integrity: meanIntegrity
 }
-

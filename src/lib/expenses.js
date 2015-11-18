@@ -7,13 +7,13 @@ import {Days} from './days.js';
 
 const dailyExpenses = Capi.cost + Journalists.cost;
 
-const totalExpensesStream = Days.stream.startWith(0).scan((acc) => {
-  return acc + dailyExpenses;
-})
+const totalExpensesStream = Days.stream.withLatestFrom(
+  Capi.cost$,
+  Journalists.cost$,
+  (days, capiCost, journoCost) => capiCost + journoCost 
+)
 
-const expensesStream = Days.stream.map((d) => dailyExpenses)
 
 export const Expenses = {
   totalStream: totalExpensesStream,
-  stream: expensesStream
 }

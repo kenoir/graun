@@ -3,8 +3,12 @@ import Rx from 'rx';
 import {Days} from './days.js';
 import {Journalists} from './journalists.js';
 
+const costCap = 125;
 
-const dailyCost = 5;
+const levelMultiplier$ = new Rx.BehaviorSubject(50);
+
+const costStream = 
+  levelMultiplier$.map((level) => (level/100) * costCap) 
 
 const headlines = [
   "Dogs and Cats live together in peace!",
@@ -18,8 +22,7 @@ const doc = (idea) => {
 
   return {
     title: headlines[i],
-    appeal: idea.appeal,
-    integrity: idea.appeal 
+    idea: idea
   }
 }
 
@@ -27,7 +30,7 @@ const documentStream =
   Journalists.ideaStream.map((idea) => doc(idea))
 
 export const Capi = {
-  cost: dailyCost,
+  cost$: costStream,
   stream: documentStream, 
   count: documentStream.startWith(0).scan((acc) => acc + 1)
 }

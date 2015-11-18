@@ -6,7 +6,7 @@ import {Capi} from './capi.js';
 const publishedArticle = (capiDocument) => {
   return {
     title: capiDocument.title + " Now with pictures of Cats!",
-    views: Math.floor(Math.random() * 100)
+    views: Math.floor(Math.random() * capiDocument.idea.integrity * 100)
   }
 }
 
