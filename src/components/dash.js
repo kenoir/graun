@@ -12,13 +12,15 @@ export const DashComponent = (responses) => {
   const dash = Rx.Observable.combineLatest(
     Days.stream,
     Days.count,
-    Expenses.totalStream,
+    Expenses.total$,
+    Expenses.daily$,
     Accountant.profitStream,
-    (day, count, expenses, profits) => {
+    (day, count, totalExpense, dailyExpense, profits) => {
       return {
         day,
         count,
-        expenses,
+        totalExpense,
+        dailyExpense,
         profits
       }
     }
@@ -29,7 +31,8 @@ export const DashComponent = (responses) => {
       return h('div.dash', [
           h('h1', `${d.day.name}`), 
           h('h2', `Day: ${d.count}`),
-          h('h2', `You spent (so far): £${d.expenses}`),
+          h('h2', `You spent today: £${d.dailyExpense}`),
+          h('h2', `You spent so far: £${d.totalExpense}`),
           h('h2', `You are worth (so far): £${d.profits}`)
       ])
     })

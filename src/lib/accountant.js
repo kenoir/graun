@@ -7,7 +7,7 @@ const startingFunds = 100;
 
 const netProfitStream = Rx.Observable.combineLatest(
   AdNet.value,
-  Expenses.totalStream,
+  Expenses.total$,
   (income, costs) => (income - costs) + startingFunds
 )
 
