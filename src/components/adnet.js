@@ -1,19 +1,19 @@
 import {h} from '@cycle/dom';
 
-import {Journalists} from '../lib/journalists.js';
+import {AdNet} from '../lib/adnet.js';
 
 import Rx from 'rx';
 
 
-export const JournalistsComponent = (responses) => {
+export const AdNetComponent = (responses) => {
 
-  const journos = Rx.Observable.combineLatest(
-    Journalists.ideaStream,
-    Journalists.integrity,
-    (idea, integrity) => {
+  const adnet = Rx.Observable.combineLatest(
+    AdNet.stream,
+    AdNet.value,
+    (ads, value) => {
       return {
-        idea,
-        integrity
+        ads,
+        value 
       }
     }
   )
@@ -28,16 +28,17 @@ export const JournalistsComponent = (responses) => {
   }
 
   function view(state$) {
-    return journos.withLatestFrom(
+    return adnet.withLatestFrom(
       state$,
-      (journos, state) => {
+      (adnet, state) => {
 
       let {label, unit, min, max} = state.props;
       let value = state.value;
 
-      return h('div.journalists', [
-          h('h1', "Journalists"),
-          h('h2', `Integrity: ${Math.floor(journos.integrity)}`),
+      return h('div.adnet', [
+          h('h1', "AdNet"),
+          h('h2', `Num ads placed last: ${adnet.ads.count}`),
+          h('h2', `You made: £${adnet.value}`),
           h('span.label', [label + ' ' + value + unit]),
           h('input.slider', {type: 'range', min, max, value})
       ])
@@ -55,9 +56,6 @@ export const JournalistsComponent = (responses) => {
 
   const actions = intent(responses.DOM);
   const vtree$ = view(model(responses, actions));
-
-  actions.changeValue$.map((level) => 
-    Journalists.level$.onNext(level)).subscribe();
 
   return {
     DOM: vtree$,

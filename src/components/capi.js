@@ -1,19 +1,19 @@
 import {h} from '@cycle/dom';
 
-import {Journalists} from '../lib/journalists.js';
+import {Capi} from '../lib/capi.js';
 
 import Rx from 'rx';
 
 
-export const JournalistsComponent = (responses) => {
+export const CapiComponent = (responses) => {
 
-  const journos = Rx.Observable.combineLatest(
-    Journalists.ideaStream,
-    Journalists.integrity,
-    (idea, integrity) => {
+  const capi = Rx.Observable.combineLatest(
+    Capi.stream,
+    Capi.count,
+    (doc, count) => {
       return {
-        idea,
-        integrity
+        doc,
+        count
       }
     }
   )
@@ -28,16 +28,17 @@ export const JournalistsComponent = (responses) => {
   }
 
   function view(state$) {
-    return journos.withLatestFrom(
+    return capi.withLatestFrom(
       state$,
-      (journos, state) => {
+      (capi, state) => {
 
       let {label, unit, min, max} = state.props;
       let value = state.value;
 
-      return h('div.journalists', [
-          h('h1', "Journalists"),
-          h('h2', `Integrity: ${Math.floor(journos.integrity)}`),
+      return h('div.capi', [
+          h('h1', "CAPI"),
+          h('h2', `Last Capi Document: ${capi.doc.title}`),
+          h('h2', `Capi Written Count: ${capi.count}`),
           h('span.label', [label + ' ' + value + unit]),
           h('input.slider', {type: 'range', min, max, value})
       ])
@@ -55,9 +56,6 @@ export const JournalistsComponent = (responses) => {
 
   const actions = intent(responses.DOM);
   const vtree$ = view(model(responses, actions));
-
-  actions.changeValue$.map((level) => 
-    Journalists.level$.onNext(level)).subscribe();
 
   return {
     DOM: vtree$,

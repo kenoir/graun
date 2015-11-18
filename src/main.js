@@ -2,7 +2,11 @@ import Cycle from '@cycle/core';
 import {h, makeDOMDriver} from '@cycle/dom';
 import Rx from 'rx';
 
+import {DashComponent} from './components/dash.js';
 import {JournalistsComponent} from './components/journalists.js';
+import {CapiComponent} from './components/capi.js';
+import {FrontendComponent} from './components/frontend.js';
+import {AdNetComponent} from './components/adnet.js';
 
 
 function intent(DOM) {
@@ -16,8 +20,24 @@ function model(actions) {
 function view(state) {
   return state.map(() =>
     h('div', [
-      h('journalists#weight', {
+      h('dash#dash', {
+        key: 0, label: 'Investment', unit: 'Units',
+        min: 0, initial: 0, max: 100
+      }),
+      h('journalists#journalists', {
         key: 1, label: 'Investment', unit: 'Units',
+        min: 0, initial: 0, max: 100
+      }),
+      h('capi#capi', {
+        key: 2, label: 'Investment', unit: 'Units',
+        min: 0, initial: 0, max: 100
+      }),
+      h('frontend#frontend', {
+        key: 3, label: 'Investment', unit: 'Units',
+        min: 0, initial: 0, max: 100
+      }),
+      h('adnet#adnet', {
+        key: 4, label: 'Investment', unit: 'Units',
         min: 0, initial: 0, max: 100
       })
     ])
@@ -32,6 +52,10 @@ function main({DOM}) {
 
 Cycle.run(main, {
   DOM: makeDOMDriver('#main-container', {
-    'journalists': JournalistsComponent
+    'dash': DashComponent,
+    'journalists': JournalistsComponent,
+    'capi': CapiComponent,
+    'frontend': FrontendComponent,
+    'adnet': AdNetComponent 
   })
 });

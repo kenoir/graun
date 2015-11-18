@@ -1,19 +1,25 @@
 import {h} from '@cycle/dom';
 
-import {Journalists} from '../lib/journalists.js';
+import {Days} from '../lib/days.js';
+import {Expenses} from '../lib/expenses.js';
+import {Accountant} from '../lib/accountant.js';
 
 import Rx from 'rx';
 
 
-export const JournalistsComponent = (responses) => {
+export const DashComponent = (responses) => {
 
-  const journos = Rx.Observable.combineLatest(
-    Journalists.ideaStream,
-    Journalists.integrity,
-    (idea, integrity) => {
+  const dash = Rx.Observable.combineLatest(
+    Days.stream,
+    Days.count,
+    Expenses.totalStream,
+    Accountant.profitStream,
+    (day, count, expenses, profits) => {
       return {
-        idea,
-        integrity
+        day,
+        count,
+        expenses,
+        profits
       }
     }
   )
@@ -28,16 +34,18 @@ export const JournalistsComponent = (responses) => {
   }
 
   function view(state$) {
-    return journos.withLatestFrom(
+    return dash.withLatestFrom(
       state$,
-      (journos, state) => {
+      (dash, state) => {
 
       let {label, unit, min, max} = state.props;
       let value = state.value;
 
-      return h('div.journalists', [
-          h('h1', "Journalists"),
-          h('h2', `Integrity: ${Math.floor(journos.integrity)}`),
+      return h('div.dash', [
+          h('h1', `${dash.day.name}`), 
+          h('h2', `Day: ${dash.count}`),
+          h('h2', `You spent (so far): £${dash.expenses}`),
+          h('h2', `You are worth (so far): £${dash.profits}`),
           h('span.label', [label + ' ' + value + unit]),
           h('input.slider', {type: 'range', min, max, value})
       ])
@@ -55,9 +63,6 @@ export const JournalistsComponent = (responses) => {
 
   const actions = intent(responses.DOM);
   const vtree$ = view(model(responses, actions));
-
-  actions.changeValue$.map((level) => 
-    Journalists.level$.onNext(level)).subscribe();
 
   return {
     DOM: vtree$,

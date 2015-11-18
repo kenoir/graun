@@ -1,19 +1,21 @@
 import {h} from '@cycle/dom';
 
-import {Journalists} from '../lib/journalists.js';
+import {Frontend} from '../lib/frontend.js';
 
 import Rx from 'rx';
 
 
-export const JournalistsComponent = (responses) => {
+export const FrontendComponent = (responses) => {
 
-  const journos = Rx.Observable.combineLatest(
-    Journalists.ideaStream,
-    Journalists.integrity,
-    (idea, integrity) => {
+  const frontend = Rx.Observable.combineLatest(
+    Frontend.stream,
+    Frontend.count,
+    Frontend.views,
+    (content, count, views) => {
       return {
-        idea,
-        integrity
+        content,
+        count,
+        views        
       }
     }
   )
@@ -28,16 +30,18 @@ export const JournalistsComponent = (responses) => {
   }
 
   function view(state$) {
-    return journos.withLatestFrom(
+    return frontend.withLatestFrom(
       state$,
-      (journos, state) => {
+      (frontend, state) => {
 
       let {label, unit, min, max} = state.props;
       let value = state.value;
 
-      return h('div.journalists', [
-          h('h1', "Journalists"),
-          h('h2', `Integrity: ${Math.floor(journos.integrity)}`),
+      return h('div.frontend', [
+          h('h1', "graun.com"),
+          h('h2', `Last Published Content: ${frontend.content.title}`),
+          h('h2', `Published Content Count: ${frontend.count}`),
+          h('h2', `Pageviews: ${frontend.views}`),
           h('span.label', [label + ' ' + value + unit]),
           h('input.slider', {type: 'range', min, max, value})
       ])
@@ -55,9 +59,6 @@ export const JournalistsComponent = (responses) => {
 
   const actions = intent(responses.DOM);
   const vtree$ = view(model(responses, actions));
-
-  actions.changeValue$.map((level) => 
-    Journalists.level$.onNext(level)).subscribe();
 
   return {
     DOM: vtree$,
