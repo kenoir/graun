@@ -20,10 +20,8 @@ function model(actions) {
 function view(state) {
   return state.map(() =>
     h('div', [
-      h('dash#dash', {
-        key: 0, label: 'Investment', unit: 'Units',
-        min: 0, initial: 0, max: 100
-      }),
+      h('dash#dash', { key: 0 }),
+      h('hr'),
       h('journalists#journalists', {
         key: 1, label: 'Investment', unit: 'Units',
         min: 0, initial: 0, max: 100
