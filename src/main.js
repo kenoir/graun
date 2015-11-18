@@ -8,6 +8,7 @@ import {AdNet} from './lib/adnet.js';
 import {Days} from './lib/days.js';
 import {Expenses} from './lib/expenses.js';
 import {Accountant} from './lib/accountant.js';
+import {Journalists} from './lib/journalists.js';
 
 
 function main(responses) {
@@ -46,6 +47,17 @@ function main(responses) {
     }
   )
 
+  const journos = Rx.Observable.combineLatest(
+    Journalists.ideaStream,
+    Journalists.integrity,
+    (idea, integrity) => {
+      return {
+        idea,
+        integrity
+      }
+    }
+  )
+
   const days = Rx.Observable.combineLatest(
     Days.stream,
     Days.count,
@@ -66,12 +78,14 @@ function main(responses) {
     frontend,
     adnet,
     days,
-    (capi, frontend, adnet, days) => {
+    journos,
+    (capi, frontend, adnet, days, journos) => {
       return {
         capi,
         frontend,
         adnet,
-        days
+        days,
+        journos
       }
     }
   )
@@ -84,6 +98,10 @@ function main(responses) {
             h('h2', `Day: ${e.days.count}`),
             h('h2', `You spent (so far): £${e.days.expenses}`),
             h('h2', `You are worth (so far): £${e.days.profits}`)
+          ]),
+          h('div', [
+            h('h1', "Journalists"),
+            h('h2', `Integrity: ${Math.floor(e.journos.integrity)}`)
           ]),
           h('div', [
             h('h1', "CAPI"),

@@ -3,11 +3,12 @@ import Rx from 'rx';
 import {Expenses} from './expenses.js';
 import {AdNet} from './adnet.js';
 
+const startingFunds = 100;
 
 const netProfitStream = Rx.Observable.combineLatest(
-  Expenses.totalStream,
   AdNet.value,
-  (income, costs) => income - costs
+  Expenses.totalStream,
+  (income, costs) => (income - costs) + startingFunds
 )
 
 export const Accountant = {
