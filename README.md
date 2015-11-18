@@ -1,6 +1,8 @@
 #Graun!
 
-Work in Progress
+![foo](https://cloud.githubusercontent.com/assets/953792/11246084/0d94cec0-8e0e-11e5-888d-c3b970535c6d.png)
+
+**Work in Progress**
 
 A game simulating making money in the wonderful world of online publishing.
 
