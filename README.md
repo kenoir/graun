@@ -14,7 +14,7 @@ A game simulating making money in the wonderful world of online publishing.
 
 Written with [cycle.js](http://cycle.js.org/) and [RxJS](https://github.com/Reactive-Extensions/RxJS).
 
-##Running locally
+## Running locally
 ```sh
 npm install
 npm start
