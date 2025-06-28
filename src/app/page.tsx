@@ -2,6 +2,7 @@
 
 import DashComponent from '../components/DashComponent';
 import DailyNewspaperComponent from '../components/DailyNewspaperComponent';
+import RevenueGraphComponent from '../components/RevenueGraphComponent';
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
           <DailyNewspaperComponent />
         </div>
         <div className="controls-column">
+          <RevenueGraphComponent />
           <DashComponent />
         </div>
       </div>

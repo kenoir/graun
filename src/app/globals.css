@@ -201,6 +201,8 @@ hr {
 .controls-column {
   display: flex;
   flex-direction: column;
+  gap: 15px;
+  width: 100%;
 }
 
 .top-section {
@@ -471,11 +473,13 @@ hr {
 /* Groogle Sheets Dashboard Styles */
 .groogle-sheets {
   background: white;
-  margin: 20px 0;
+  margin: 0;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   border: 1px solid #e0e0e0;
   font-family: 'Roboto', Arial, sans-serif;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .groogle-header {
@@ -891,7 +895,123 @@ hr {
   color: #495057;
 }
 
-.controls-column {
+/* Revenue Graph Component */
+.revenue-graph {
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  padding: 15px;
+  margin: 20px 0 0 0;
+  font-size: 0.9em;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.graph-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.graph-title {
+  font-weight: bold;
+  color: #495057;
+}
+
+.graph-period {
+  font-size: 0.8em;
+  color: #6c757d;
+}
+
+.graph-container {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.revenue-chart {
+  border: 1px solid #e9ecef;
+  border-radius: 3px;
+  background: #fafafa;
+  width: 100%;
+  height: 80px;
+  max-width: none;
+}
+
+.data-point {
+  transition: r 0.2s ease;
+}
+
+.data-point:hover {
+  r: 3;
+  fill: #007bff;
+}
+
+.y-axis-labels {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  height: 80px;
+  margin-left: 8px;
+  font-size: 0.7em;
+  color: #6c757d;
+}
+
+.y-label {
+  line-height: 1;
+}
+
+.y-label.top {
+  transform: translateY(-0.5em);
+}
+
+.y-label.bottom {
+  transform: translateY(0.5em);
+}
+
+.x-axis-labels {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 5px;
+  font-size: 0.7em;
+  color: #6c757d;
+}
+
+.x-label {
+  font-size: 0.9em;
+}
+
+.graph-stats {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 8px;
+  padding-top: 5px;
+  border-top: 1px solid #e9ecef;
+  font-size: 0.8em;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.stat-label {
+  color: #6c757d;
+  font-size: 0.9em;
+}
+
+.stat-value {
+  font-weight: bold;
+  color: #495057;
+}
+
+.stat-value.positive {
+  color: #28a745;
 }
