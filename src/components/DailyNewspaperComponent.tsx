@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { combineLatest } from 'rxjs';
 import { Days } from '../lib/days';
 import { Frontend } from '../lib/frontend';
+import { AdNet } from '../lib/adnet';
 
 interface NewspaperData {
   day: { name: string; number: number };
@@ -16,6 +17,12 @@ interface NewspaperData {
   } | null;
   hasArticle: boolean;
   isFallback: boolean;
+  ads: Array<{
+    company_name: string;
+    title: string;
+    ad_copy: string;
+    rpc: number;
+  }>;
 }
 
 export default function DailyNewspaperComponent() {
@@ -55,6 +62,7 @@ export default function DailyNewspaperComponent() {
     let currentArticle: any = null;
     let currentDay = 0;
     let hasReceivedArticle = false;
+    let currentAds: any[] = [];
 
     // Track the latest published article
     const articleSubscription = Frontend.stream.subscribe((article) => {
@@ -66,6 +74,16 @@ export default function DailyNewspaperComponent() {
         article: currentArticle,
         hasArticle: true,
         isFallback: false
+      } : null);
+    });
+
+    // Track ads
+    const adsSubscription = AdNet.stream.subscribe((adData) => {
+      currentAds = adData.ads;
+      // Update ads in newspaper
+      setNewspaperData(prev => prev ? {
+        ...prev,
+        ads: currentAds
       } : null);
     });
 
@@ -89,12 +107,14 @@ export default function DailyNewspaperComponent() {
         day,
         article: articleToShow,
         hasArticle: articleToShow !== null,
-        isFallback: isUsingFallback
+        isFallback: isUsingFallback,
+        ads: currentAds
       });
     });
 
     return () => {
       articleSubscription.unsubscribe();
+      adsSubscription.unsubscribe();
       daySubscription.unsubscribe();
     };
   }, []);
@@ -130,6 +150,22 @@ export default function DailyNewspaperComponent() {
             <div className="article-body">
               {newspaperData.article.body}
             </div>
+            
+            {/* Display ads after the article */}
+            {newspaperData.ads && newspaperData.ads.length > 0 && (
+              <div className="newspaper-ads">
+                <div className="ads-header">Advertisements</div>
+                <div className="ads-grid">
+                  {newspaperData.ads.map((ad, index) => (
+                    <div key={index} className="newspaper-ad">
+                      <div className="ad-company">{ad.company_name}</div>
+                      <div className="ad-title">{ad.title}</div>
+                      <div className="ad-copy">{ad.ad_copy}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         ) : (
           <div className="no-news">

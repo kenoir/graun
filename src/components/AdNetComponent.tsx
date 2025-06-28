@@ -5,7 +5,16 @@ import { combineLatest } from 'rxjs';
 import { AdNet } from '../lib/adnet';
 
 interface AdNetData {
-  ads: { count: number; value: number; title: string };
+  ads: { 
+    count: number; 
+    value: number; 
+    ads: Array<{
+      company_name: string;
+      title: string;
+      ad_copy: string;
+      rpc: number;
+    }>;
+  };
   value: number;
 }
 
@@ -50,8 +59,26 @@ export default function AdNetComponent({ label, unit, min, max, initial }: AdNet
   return (
     <div className="adnet">
       <h1>AdNet</h1>
-      <h2>Num ads placed last: {adNetData.ads.count}</h2>
-      <h2>You made: £{adNetData.value}</h2>
+      <h2>Ads placed: {adNetData.ads.count}</h2>
+      <h2>Total revenue: £{adNetData.value.toFixed(2)}</h2>
+      
+      <div className="current-ads">
+        <h3>Current Advertisers:</h3>
+        {adNetData.ads.ads.length > 0 ? (
+          <div className="ads-list">
+            {adNetData.ads.ads.map((ad, index) => (
+              <div key={index} className="ad-item">
+                <div className="ad-company">{ad.company_name}</div>
+                <div className="ad-title">{ad.title}</div>
+                <div className="ad-rpc">RPC: £{ad.rpc.toFixed(2)}</div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="no-ads">No ads currently placed</div>
+        )}
+      </div>
+      
       <span className="label">{label} {value}{unit}</span>
       <input
         className="slider"

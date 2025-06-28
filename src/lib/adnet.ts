@@ -1,32 +1,56 @@
 import { map, scan, withLatestFrom, combineLatest, BehaviorSubject } from 'rxjs';
 import { Frontend } from './frontend';
 import { Days } from './days';
+import advertsData from '../resources/adverts.json';
 
 const baseCPM = 0.03;
 const levelMultiplier$ = new BehaviorSubject(15); // Start with some initial investment
 
-const adCounter = (level: number) => {
-  // Investment affects number of ads placed (1-5 ads based on level)
-  const maxAds = Math.max(1, Math.min(5, Math.floor(level / 20) + 1));
-  return Math.floor(Math.random() * maxAds) + 1;
-};
+interface Advert {
+  company_name: string;
+  title: string;
+  ad_copy: string;
+  rpc: number;
+}
 
 interface AdPlacement {
   count: number;
   value: number;
-  title: string;
+  ads: Advert[];
 }
 
+const selectAdverts = (level: number): Advert[] => {
+  // Investment affects number of ads placed (1-5 ads based on level)
+  const maxAds = Math.max(1, Math.min(5, Math.floor(level / 20) + 1));
+  const adCount = Math.floor(Math.random() * maxAds) + 1;
+  
+  // Select random ads from the available pool
+  const selectedAds: Advert[] = [];
+  const availableAds = [...advertsData.adverts];
+  
+  for (let i = 0; i < adCount && availableAds.length > 0; i++) {
+    const randomIndex = Math.floor(Math.random() * availableAds.length);
+    selectedAds.push(availableAds.splice(randomIndex, 1)[0]);
+  }
+  
+  return selectedAds;
+};
+
 const adPlacement = (frontendContent: any, level: number): AdPlacement => { 
-  const adCount = adCounter(level);
-  // Investment also affects CPM (0.03 base + up to 0.05 bonus)
-  const cpm = baseCPM + (level / 100) * 0.05;
-  const value = Math.floor(frontendContent.views * cpm * adCount);
+  const ads = selectAdverts(level);
+  
+  // Calculate revenue based on views and RPC (Revenue Per Click/view)
+  let totalValue = 0;
+  ads.forEach(ad => {
+    // RPC acts as a multiplier for revenue generation
+    const adRevenue = Math.floor(frontendContent.views * ad.rpc * 0.1); // 0.1 as base multiplier
+    totalValue += adRevenue;
+  });
 
   return {
-    count: adCount, 
-    value: value,
-    title: "Buy Stuff!"
+    count: ads.length,
+    value: totalValue,
+    ads: ads
   };
 };
 
