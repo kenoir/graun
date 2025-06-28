@@ -8,6 +8,7 @@ import { Accountant } from '../lib/accountant';
 import { AdNet } from '../lib/adnet';
 import { Frontend } from '../lib/frontend';
 import { Journalists } from '../lib/journalists';
+import InvestmentControlsComponent from './InvestmentControlsComponent';
 
 interface DashData {
   dayProgress: number;
@@ -174,6 +175,7 @@ export default function DashComponent() {
                 {dashData.journalistIntegrity > 50 ? '⭐ High quality' : '⚠ Questionable'}
               </td>
             </tr>
+            <InvestmentControlsComponent />
           </tbody>
         </table>
       </div>

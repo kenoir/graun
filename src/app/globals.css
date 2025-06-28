@@ -201,13 +201,6 @@ hr {
 .controls-column {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-}
-
-.investment-controls {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
 }
 
 .top-section {
@@ -812,93 +805,93 @@ hr {
   font-style: italic;
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .top-section {
-    grid-template-columns: 1fr;
-  }
-  
-  .day-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-  
-  .day-clock {
-    align-items: flex-start;
-    min-width: auto;
-    width: 100%;
-  }
-  
-  .clock-container {
-    width: 100%;
-  }
-  
-  .day-info {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-  
-  .day-progress-container {
-    margin-left: 0;
-    width: 100%;
-  }
-  
-  .day-progress-bar {
-    width: 100%;
-  }
-  
-  .financial-table {
-    font-size: 0.8em;
-  }
-  
-  .financial-table th,
-  .financial-table td {
-    padding: 8px 10px;
-  }
-  
-  .dashboard-header h1 {
-    font-size: 1.5em;
-  }
-  
-  .article-meta {
-    flex-direction: column;
-    gap: 8px;
-  }
-  
-  .article-body {
-    font-size: 0.9em;
-  }
-  
-  .groogle-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-  }
-  
-  .bank-balance {
-    align-items: flex-start;
-    text-align: left;
-  }
-  
-  .sheet-headers {
-    font-size: 0.7em;
-  }
-  
-  .groogle-table {
-    font-size: 0.8em;
-  }
-  
-  .cell-data {
-    padding: 8px 6px;
-  }
-  
-  .sheet-name {
-    font-size: 1.1em;
-  }
-  
-  .balance-amount {
-    font-size: 1.3em;
-  }
+/* Investment Controls Styles */
+.section-header td {
+  font-weight: bold;
+  background: #f8f9fa !important;
+  border-bottom: 2px solid #dee2e6 !important;
+  color: #495057 !important;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 1.1em;
+  padding: 12px !important;
+}
+
+.investment-row .row-number {
+  color: #6c757d;
+  font-size: 0.9em;
+}
+
+.investment-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.investment-btn {
+  background: #fff;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.1s ease;
+  user-select: none;
+}
+
+.investment-btn:hover:not(:disabled) {
+  background: #f8f9fa;
+  border-color: #adb5bd;
+  transform: scale(1.05);
+}
+
+.investment-btn:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.investment-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.investment-btn.plus {
+  color: #28a745;
+}
+
+.investment-btn.minus {
+  color: #dc3545;
+}
+
+.investment-btn.clicked {
+  background: #007bff !important;
+  color: white !important;
+  transform: scale(0.95);
+}
+
+.investment-btn.plus.clicked {
+  background: #28a745 !important;
+}
+
+.investment-btn.minus.clicked {
+  background: #dc3545 !important;
+}
+
+.investment-value {
+  min-width: 30px;
+  text-align: center;
+  font-weight: bold;
+  color: #495057;
+}
+
+.controls-column {
+  display: flex;
+  flex-direction: column;
 }
