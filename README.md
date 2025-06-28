@@ -1,18 +1,23 @@
 # Graun - Digital Media Company Simulation
 
-A digital media company simulation game built with Next.js, converted from the original Cycle.js implementation. Manage journalists, content API, frontend publishing, and ad networks to grow your media empire!
+A modern business simulation game where you manage a digital media company. Originally built with Cycle.js, this version has been completely modernized using Next.js, React, and TypeScript. Make strategic investments in journalism, technology, and advertising to build a profitable media empire!
 
-Play here: http://kenoir.github.io/graun/
+**🎮 [Play the Game](https://kenoir.github.io/graun/)**
 
 ## Features
 
-- **Dashboard**: Track your daily progress, expenses, and profits
-- **Journalists**: Invest in journalism quality and integrity  
-- **CAPI (Content API)**: Manage content creation and processing
-- **Frontend**: Publish articles and track pageviews
-- **AdNet**: Monetize your content through advertising
+- **Real-time Business Dashboard**: "Groogle Sheets" style interface with live metrics, bank balance, and day progress
+- **Revenue & Cost Tracking**: Interactive graph showing financial trends over time
+- **Daily Newspaper**: Dynamic content with headlines, articles, and integrated advertisements
+- **Strategic Investment Controls**: 
+  - **Journalists**: Hire staff to generate quality content with varying sensationalism and integrity
+  - **CAPI (Content API)**: Process and manage article creation pipeline
+  - **Frontend**: Publish articles and track pageviews and engagement
+  - **AdNet**: Monetize content through dynamic advertising with real-time revenue
+- **Dynamic Content System**: Headlines and advertisements sourced from JSON data with intelligent matching
+- **Time Progression**: Real-time day/night cycle with business metrics updating live
 
-![Game Screenshot](https://cloud.githubusercontent.com/assets/953792/11246084/0d94cec0-8e0e-11e5-888d-c3b970535c6d.png)
+![Game Screenshot](screenshot.png)
 
 ## Getting Started
 
@@ -63,21 +68,35 @@ This app is configured for automatic deployment to GitHub Pages.
 
 ## Technology Stack
 
-- **Next.js 14** - React framework with static export capabilities
-- **React 18** - UI library  
-- **RxJS 7** - Reactive programming for real-time updates
-- **TypeScript** - Type safety and better developer experience
+- **Next.js 14** - React framework with static export capabilities for GitHub Pages
+- **React 18** - Modern UI library with hooks and functional components
+- **RxJS 7** - Reactive programming for real-time business simulation
+- **TypeScript** - Full type safety and enhanced developer experience
+- **Modern CSS** - Responsive design with Google Sheets-inspired dashboard styling
 
 ## Game Mechanics
 
-The simulation runs in real-time with these core mechanics:
+This business simulation features sophisticated real-time mechanics:
 
-- **Time**: Days advance every 5 seconds
-- **Journalists**: Generate ideas based on investment level
-- **CAPI**: Processes journalist ideas into articles
-- **Frontend**: Randomly publishes CAPI articles with view counts
-- **AdNet**: Generates revenue based on published content views
-- **Economics**: Balance daily expenses against ad revenue
+### Core Systems
+- **Time Management**: Days advance every 5 seconds with live progress indicators
+- **Financial Tracking**: Real-time revenue, expenses, and profit calculations
+- **Content Pipeline**: 
+  - Journalists generate story ideas based on investment and market trends
+  - CAPI processes ideas into publishable articles with quality metrics
+  - Frontend publishes articles with view tracking and engagement analytics
+  - AdNet monetizes content through targeted advertising
+
+### Strategic Elements
+- **Investment Decisions**: Balance spending across journalism, technology, and advertising
+- **Content Quality**: Manage the tension between sensationalism (higher views) and integrity (better reputation)
+- **Revenue Optimization**: Optimize ad placement and content strategy for maximum profitability
+- **Risk Management**: Navigate daily operational costs while building sustainable revenue streams
+
+### Dynamic Content
+- **Headlines System**: Real news headlines influence article generation and reader engagement
+- **Advertisement Network**: Dynamic ads with varying revenue potential based on market conditions
+- **Fallback Content**: Ensures the newspaper always has content, even during slow news periods
 
 Written with [Next.js](https://nextjs.org/) and [RxJS](https://rxjs.dev/).
 ```
