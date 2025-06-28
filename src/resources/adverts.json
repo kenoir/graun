@@ -1,0 +1,94 @@
+{
+  "adverts": [
+    {
+      "company_name": "Amalgamated Nutrition Corp",
+      "title": "Soylent Green-ish Meal Replacement Paste",
+      "ad_copy": "Now with 15% less ambiguity! It's the taste of a brighter, more efficient tomorrow. Probably.",
+      "rpc": 0.75
+    },
+    {
+      "company_name": "Ministry of Public Tranquillity",
+      "title": "The 'Calm' App",
+      "ad_copy": "Mandatory serenity, at your fingertips. Because non-compliance is a very stressful choice.",
+      "rpc": 0.95
+    },
+    {
+      "company_name": "Retrograde Solutions Ltd.",
+      "title": "NostalgiaMAX™ Subscription Service",
+      "ad_copy": "Why face the future when you can re-live the tolerable parts of the past? Now featuring 'The 2040s: It Wasn't *That* Bad'.",
+      "rpc": 0.90
+    },
+    {
+      "company_name": "Atmos-Fear Inc.",
+      "title": "Breathe-Plus® Premium Air",
+      "ad_copy": "Don't settle for 'ambient'. Upgrade your atmosphere to 'Vaguely Pine-Scented' for just £19.99 a month.",
+      "rpc": 0.88
+    },
+    {
+      "company_name": "Cogito Ergonomic Sum",
+      "title": "Sentient Appliance Therapy",
+      "ad_copy": "Our technicians are certified in both circuitry and existential philosophy. We'll talk your toaster down from the ledge.",
+      "rpc": 0.60
+    },
+    {
+      "company_name": "Pho-ton Industries",
+      "title": "Genuine Imitation Sunlight Bulbs",
+      "ad_copy": "99.8% as good as the real thing! We think. It's been a while.",
+      "rpc": 0.45
+    },
+    {
+      "company_name": "AmalgaCorp",
+      "title": "Self-Driving Coffins",
+      "ad_copy": "The last commute you'll ever need to worry about. Pre-book your final destination and enjoy the ride.",
+      "rpc": 0.70
+    },
+    {
+      "company_name": "Quantum Critters",
+      "title": "Schrödinger's Cat-in-a-Box Pet Service",
+      "ad_copy": "The perfect low-maintenance companion. It is simultaneously affectionate and aloof right up until you open the box. (Do not open the box).",
+      "rpc": 0.25
+    },
+    {
+      "company_name": "MindMaze Inc.",
+      "title": "Personalised Existential Crises",
+      "ad_copy": "Tired of the same old generic dread? For a small fee, we'll curate a bespoke existential crisis tailored to your unique anxieties.",
+      "rpc": 0.55
+    },
+    {
+      "company_name": "GiggleCorp",
+      "title": "Laughter Tracks",
+      "ad_copy": "Can't quite remember the appropriate social response? We provide a full library of pre-approved chuckles, titters, and guffaws.",
+      "rpc": 0.30
+    },
+    {
+      "company_name": "Unintended Consequences Software",
+      "title": "The 'It's Not A Bug, It's A Feature' Home OS",
+      "ad_copy": "Your lights will flicker, your thermostat will argue, and your door may not open. But that's all part of the charming, unpredictable experience we designed.",
+      "rpc": 0.65
+    },
+    {
+      "company_name": "Carbon Copy Conglomerate",
+      "title": "MyFirstClone™ Starter Kit",
+      "ad_copy": "Need someone to do the dishes, file your taxes, or attend a family gathering? Some assembly and light genetic programming required. Individuality not included.",
+      "rpc": 0.98
+    },
+    {
+      "company_name": "Aqua Pura-ish",
+      "title": "Recycled Steamed Vapour",
+      "ad_copy": "All the hydration of yesterday's fog, bottled for your convenience today.",
+      "rpc": 0.15
+    },
+    {
+      "company_name": "Red Tape Runners",
+      "title": "Bureaucracy Navigation for Dummies",
+      "ad_copy": "For a low, low fee, we'll wait on hold with the council for you. We can't promise results, but we can promise you won't have to listen to the hold music.",
+      "rpc": 0.40
+    },
+    {
+      "company_name": "Temporal Adjustments LLC",
+      "title": "Insta-Queue™",
+      "ad_copy": "Hate waiting? Our patented service allows you to experience the full tedium of a multi-hour queue in just five agonising minutes. Mild nausea is a sign it's working.",
+      "rpc": 0.50
+    }
+  ]
+}

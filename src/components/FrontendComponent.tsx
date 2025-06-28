@@ -5,7 +5,13 @@ import { combineLatest } from 'rxjs';
 import { Frontend } from '../lib/frontend';
 
 interface FrontendData {
-  content: { title: string; views: number };
+  content: { 
+    title: string; 
+    body: string;
+    views: number;
+    sensationalism: number;
+    integrity: number;
+  };
   count: number;
   views: number;
 }
@@ -38,6 +44,10 @@ export default function FrontendComponent({ label, unit, min, max, initial }: Fr
     return () => subscription.unsubscribe();
   }, []);
 
+  useEffect(() => {
+    Frontend.level$.next(value);
+  }, [value]);
+
   const handleSliderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(Number(event.target.value));
   };
@@ -51,7 +61,11 @@ export default function FrontendComponent({ label, unit, min, max, initial }: Fr
       <h1>graun.com</h1>
       <h2>Last Published Content: {frontendData.content.title}</h2>
       <h2>Published Content Count: {frontendData.count}</h2>
-      <h2>Pageviews: {frontendData.views}</h2>
+      <h2>Pageviews: {frontendData.views.toLocaleString()}</h2>
+      <div className="content-metrics">
+        <span className="metric sensationalism">🔥 {Math.round(frontendData.content.sensationalism * 100)}% sensational</span>
+        <span className="metric integrity">⭐ {Math.round(frontendData.content.integrity * 100)}% integrity</span>
+      </div>
       <span className="label">{label} {value}{unit}</span>
       <input
         className="slider"

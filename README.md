@@ -2,7 +2,7 @@
 
 A digital media company simulation game built with Next.js, converted from the original Cycle.js implementation. Manage journalists, content API, frontend publishing, and ad networks to grow your media empire!
 
-**Play @ [http://your-username.github.io/graun/](http://your-username.github.io/graun/)**
+Play here: http://kenoir.github.io/graun/
 
 ## Features
 

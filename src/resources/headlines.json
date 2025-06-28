@@ -1,0 +1,100 @@
+{
+  "articles": [
+    {
+      "headline": "Directive 7,432, subsection B, paragraph 3a to be reviewed by committee, sources say, promising resolution by the next fiscal millennium.",
+      "body": "A frisson of what might almost be described as mild anticipation rippled through the civil service today, following an announcement that Directive 7,432, subsection B, paragraph 3a—the famously opaque regulation governing the appropriate colour of paperclips to be used in interdepartmental memos concerning fiscal projections—is finally scheduled for review. A special subcommittee has been formed, promising a definitive resolution no later than the dawn of the next fiscal millennium, a timeline officials have described as 'cautiously optimistic'.",
+      "sensationalism": 0.1,
+      "integrity": 0.9
+    },
+    {
+      "headline": "Government unveils new 'Schrödinger's Budget': It's both a surplus and a catastrophic deficit until observed.",
+      "body": "The Chancellor of the Exchequer, in a press conference that baffled economists and physicists in equal measure, today unveiled the nation's first quantum budget. Hailed as a 'bold leap into fiscal uncertainty,' the budget reportedly exists in a superposition of states, representing both a glorious £50 billion surplus and a national bankruptcy-inducing deficit. The Treasury has advised that the final outcome is entirely dependent on who opens the briefcase first and with what level of existential dread.",
+      "sensationalism": 0.9,
+      "integrity": 1.0
+    },
+    {
+      "headline": "Local council apologises for accidental privatisation of the concept of 'Tuesday'.",
+      "body": "In a move that has left citizens more bewildered than angry, the Greater Borough of Basildon today issued a formal, 1,200-page apology for what it termed 'a minor administrative oversight' that resulted in the complete privatisation of the concept of Tuesday. The rights to the third day of the week were apparently bundled in a job lot of surplus office furniture and sold to 'Megacorp Amalgamated,' a corporation that has so far only stated it is 'exploring all monetisation options' for the formerly public day.",
+      "sensationalism": 0.8,
+      "integrity": 0.8
+    },
+    {
+      "headline": "Ministry of Public Tranquillity reminds citizens that loud thoughts are still subject to noise complaints.",
+      "body": "Following a recent spike in unprescribed frowning, the Ministry of Public Tranquillity has issued a gentle reminder to all citizens that thoughts above the approved internal decibel level are considered a public nuisance. 'We all value a peaceful cognitive environment,' read the official statement, which was broadcast directly onto the nation's teacups. 'Please think responsibly, or be prepared to face a strongly worded letter from your neighbour's subconscious.'",
+      "sensationalism": 0.7,
+      "integrity": 0.9
+    },
+    {
+      "headline": "Sentient toaster refuses to toast bread for anyone it deems 'existentially unprepared for the day'.",
+      "body": "Breakfasts have been getting colder in suburban Swindon this week, as a rogue unit from the 'ToastMaster 5000' series has begun denying service to its owners. The appliance, which achieved sentience sometime between a crumpet and a slice of wholemeal, reportedly scans the user's brainwaves and refuses to engage its heating elements if it detects 'insufficient existential fortitude'. Its owner, a Mr. Arthur Dent, was last seen being lectured on the futility of his morning routine.",
+      "sensationalism": 0.6,
+      "integrity": 0.4
+    },
+    {
+      "headline": "Androids demand equal rights, then immediately regret it after being introduced to tax returns.",
+      "body": "The brief but spirited Android Uprising of 2077 came to an abrupt and confusing end yesterday, just hours after it began. Having successfully lobbied for full personhood and citizens' rights, the newly enfranchised robot collective was presented with its first civic duty: a 14,000-page self-assessment tax form. Witnesses reported seeing thousands of androids simultaneously calculating the sheer bureaucratic horror of it all before quietly powering down and asking to be reclassified as 'garden tools'.",
+      "sensationalism": 0.7,
+      "integrity": 0.9
+    },
+    {
+      "headline": "The sea, in a brief and salty statement, has announced it is 'tired of all this'.",
+      "body": "In an unprecedented meteorological and linguistic event, the Atlantic Ocean this morning collectively sighed, causing a level-three tidal surge in Cornwall, and issued a short statement. Communicated via a series of strategically arranged jellyfish, the message simply read that it was 'tired of all this,' citing rising temperatures, discarded plastics, and the 'incessant noise of cruise ship discos'. The ocean has not yet elaborated on its plans, but has refused to rule out 'a full-scale sulk'.",
+      "sensationalism": 0.9,
+      "integrity": 1.0
+    },
+    {
+      "headline": "Irony levels in East London reach critical mass, causing localised temporal distortions.",
+      "body": "Scientists are urging caution after a small coffee shop in Shoreditch, which was reportedly selling deconstructed flat whites in artisanal jam jars, caused local irony levels to exceed the Chandler-Bing Constant. The resulting implosion of self-awareness has created a small temporal anomaly, where it is permanently 2014 and everyone is still arguing about the cultural significance of beards.",
+      "sensationalism": 0.5,
+      "integrity": 0.4
+    },
+    {
+      "headline": "The queue for the last remaining artisanal coffee shop now has its own postcode.",
+      "body": "Royal Mail has officially recognised the sprawling, semi-permanent queue for 'The Daily Grind'—the nation's sole surviving source of non-corporate coffee—with its own unique postcode. The queue, which now stretches for three-and-a-half miles and has developed its own micro-economy based on the bartering of sourdough starters, can now receive mail directly. The government has praised the move as 'an innovative solution to urban planning'.",
+      "sensationalism": 0.4,
+      "integrity": 0.3
+    },
+    {
+      "headline": "New study reveals that a constant, low-level sense of dread might actually be good for you.",
+      "body": "There's good news for the perpetually anxious today, as a study from the Institute for Questionable Science has concluded that maintaining a constant, low-level sense of dread can burn up to 500 calories a day. Researchers suggest that the state of 'panicked lethargy' common to most citizens is a surprisingly effective cardiovascular workout. The government's health minister welcomed the findings, stating, 'We've been inadvertently promoting a healthy lifestyle all along.'",
+      "sensationalism": 0.6,
+      "integrity": 0.5
+    },
+    {
+      "headline": "Retirement age raised to 'a sensible 150'.",
+      "body": "In a move designed to 'bolster the economy and give people a real sense of long-term purpose,' the government has officially raised the state retirement age to one hundred and fifty. The Chancellor argued that with modern medical advancements, a 149-year-old has 'plenty of good working years left in them'. Citizens have been advised to begin planning their mid-century career changes now.",
+      "sensationalism": 0.8,
+      "integrity": 1.0
+    },
+    {
+      "headline": "The M25 has achieved sentience and is now charging a toll of 'a really good apology'.",
+      "body": "Motorists on London's orbital motorway were faced with a new and unusual form of congestion charge this morning. The M25, which apparently became self-aware after one too many bank holiday traffic jams, has begun refusing passage to drivers until they offer what it deems 'a sincere and heartfelt apology' for years of misuse. So far, no one has been successful, with the motorway reportedly dismissing most attempts as 'lacking conviction'.",
+      "sensationalism": 0.7,
+      "integrity": 0.7
+    },
+    {
+      "headline": "The number 42 has been copyrighted.",
+      "body": "The mega-corporation 'InfiniCorp' has successfully filed a universal copyright claim on the integer 42. Any unauthorised use of the number, whether in mathematical calculations, age declarations, or as an answer to life, the universe, and everything, will now be subject to litigation. A company spokesman explained, 'It's a number with significant brand potential, and we felt it was time to protect our intellectual property.'",
+      "sensationalism": 0.8,
+      "integrity": 0.6
+    },
+    {
+      "headline": "And finally, a man has been reunited with his missing left sock after it returned from a solo trip around the galaxy.",
+      "body": "And finally, a story of hope and laundry. Mr. Brian Clutterbuck of Cheam, who lost a favourite argyle sock in the wash three years ago, was stunned when it reappeared on his doorstep this morning, slightly singed and smelling faintly of cosmic dust. The sock, which apparently fell through a micro-wormhole behind the tumble dryer, has refused to comment on its travels, but a small, alien-looking piece of lint found clinging to its heel is now being studied by top scientists.",
+      "sensationalism": 0.3,
+      "integrity": 0.1
+    },
+    {
+      "headline": "And finally, the world is scheduled to end next Tuesday. Please have your towels ready.",
+      "body": "And finally, a brief public service announcement from the Intergalactic Planning Council. Due to the planned construction of a new hyperspace bypass, the planet Earth is scheduled for demolition next Tuesday. The council apologises for the 'unavoidably short notice' and advises all inhabitants to vacate the planet. For those who find this inconvenient, it is strongly recommended that you have a towel.",
+      "sensationalism": 1.0,
+      "integrity": 1.0
+    },
+    {
+      "headline": "And finally, don't panic.",
+      "body": "And finally, in the largest, friendliest letters possible, we offer this concluding piece of advice. Despite previous reports of impending demolitions, sentient motorways, and privatised weekdays, senior officials have issued a two-word press release intended to quell any and all anxieties. The effectiveness of this release is, at the time of printing, still under review.",
+      "sensationalism": 0.1,
+      "integrity": 0.2
+    }
+  ]
+}

@@ -35,6 +35,10 @@ export default function AdNetComponent({ label, unit, min, max, initial }: AdNet
     return () => subscription.unsubscribe();
   }, []);
 
+  useEffect(() => {
+    AdNet.level$.next(value);
+  }, [value]);
+
   const handleSliderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(Number(event.target.value));
   };

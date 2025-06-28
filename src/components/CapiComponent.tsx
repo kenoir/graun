@@ -5,7 +5,13 @@ import { combineLatest } from 'rxjs';
 import { Capi } from '../lib/capi';
 
 interface CapiData {
-  doc: { title: string; idea: any };
+  doc: { 
+    title: string; 
+    body: string;
+    sensationalism: number;
+    integrity: number;
+    idea: any;
+  };
   count: number;
 }
 
@@ -35,6 +41,10 @@ export default function CapiComponent({ label, unit, min, max, initial }: CapiCo
     return () => subscription.unsubscribe();
   }, []);
 
+  useEffect(() => {
+    Capi.level$.next(value);
+  }, [value]);
+
   const handleSliderChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(Number(event.target.value));
   };
@@ -48,6 +58,10 @@ export default function CapiComponent({ label, unit, min, max, initial }: CapiCo
       <h1>CAPI</h1>
       <h2>Last Capi Document: {capiData.doc.title}</h2>
       <h2>Capi Written Count: {capiData.count}</h2>
+      <div className="content-metrics">
+        <span className="metric sensationalism">🔥 {Math.round(capiData.doc.sensationalism * 100)}% sensational</span>
+        <span className="metric integrity">⭐ {Math.round(capiData.doc.integrity * 100)}% integrity</span>
+      </div>
       <span className="label">{label} {value}{unit}</span>
       <input
         className="slider"

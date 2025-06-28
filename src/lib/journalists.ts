@@ -1,6 +1,6 @@
 import { BehaviorSubject, interval, map, scan, startWith, withLatestFrom } from 'rxjs';
 
-const levelMultiplier$ = new BehaviorSubject(0);
+const levelMultiplier$ = new BehaviorSubject(10); // Start with some initial investment
 
 const costCap = 25;
 const attrCap = 10;
@@ -26,7 +26,7 @@ const costStream = levelMultiplier$.pipe(
   map((level: number) => (level / 100) * costCap)
 );
 
-const ideaStream = interval(1000).pipe(
+const ideaStream = interval(800).pipe( // Generate ideas more frequently (every 800ms instead of 1000ms)
   withLatestFrom(levelMultiplier$),
   map(([t, level]: [number, number]) => idea(level))
 );
