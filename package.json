@@ -1,23 +1,28 @@
 {
   "name": "graun",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "author": "Robert Kenny",
   "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "deploy": "npm run build && touch out/.nojekyll"
+  },
   "dependencies": {
-    "@cycle/core": "3.1.x",
-    "@cycle/dom": "5.1.x",
-    "rx": "^4.0.7"
+    "next": "14.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rxjs": "^7.8.1"
   },
   "devDependencies": {
-    "browserify": "11.0.1",
-    "babel": "5.6.x",
-    "babelify": "6.1.x",
-    "mkdirp": "0.5.x"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "mkdir -p dist && browserify src/main.js -t babelify --outfile dist/main.js",
-    "start": "npm run browserify && echo 'Done!'"
+    "@types/node": "^20.8.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "eslint": "^8.51.0",
+    "eslint-config-next": "14.0.0",
+    "typescript": "^5.2.0"
   }
 }

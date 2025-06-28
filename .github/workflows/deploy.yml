@@ -1,14 +1,20 @@
-name: Deploy to GitHub Pages
+name: Deploy Next.js to GitHub Pages
 
 on:
   push:
     branches:
-      - main  # Or your default branch
-  workflow_dispatch: # Allows manual triggering
+      - main
+  workflow_dispatch:
+
 permissions:
-  contents: read       # For checking out the code
-  pages: write         # To deploy to Pages
-  id-token: write      # To verify the deployment
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,17 +25,21 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20' # Specify the Node.js version you need
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
 
       - name: Build the site
-        run: |
-          npm install
-          npm run build
+        run: npm run build
+        env:
+          NODE_ENV: production
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.' # Or the directory containing your built files
+          path: ./out
 
   deploy:
     environment:
